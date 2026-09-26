@@ -1,4 +1,4 @@
-/* Njordlinger - a Mod Organizer 2 theme. Version ﻿1.0.0. BUILT by tools\build_theme.py from src\palette.json and
+/* Njordlinger - a Mod Organizer 2 theme. Version 1.0.1. BUILT by tools\build_theme.py from src\palette.json and
    writes stylesheets\Njordlinger.qss + stylesheets\Njordlinger\. Edit colours in the palette, not the built sheet. */
 /*!*************************************
   Skyrim

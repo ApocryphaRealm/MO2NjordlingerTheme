@@ -2,6 +2,12 @@
 
 Versions are issued by the project's version gate. Written as the change happens (rule 61).
 
+## 1.0.1 - 2026-09-26
+
+* The built sheet's header comment no longer carries an invisible byte-order mark before the version number (it came
+  from the version gate writing VERSION with a BOM; the gate and the builder are both fixed). Nothing else changed - the
+  theme looks and behaves exactly as 1.0.0.
+
 ## 1.0.0 - 2026-09-26
 
 First packaged version. The owner: *"i want it packeged with the button faces and icons, the separator and mod colors

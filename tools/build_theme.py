@@ -51,7 +51,7 @@ def css(text):
 
 def main():
     pal = json.load(open(os.path.join(ROOT, "src", "palette.json"), encoding="utf-8"))["roles"]
-    version = open(os.path.join(ROOT, "VERSION"), encoding="utf-8").read().strip()   # issued by the version gate
+    version = open(os.path.join(ROOT, "VERSION"), encoding="utf-8-sig").read().strip()   # issued by the version gate
     if os.path.isdir(THEME_DIR):
         shutil.rmtree(THEME_DIR)
     os.makedirs(os.path.join(THEME_DIR, "icons"))
