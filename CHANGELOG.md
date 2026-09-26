@@ -11,6 +11,10 @@ we should do that instead"*.
 * Installs like any MO2 theme: `Njordlinger.qss` and the `Njordlinger\` folder into `<MO2>\stylesheets\`.
 * Built from one palette (`src\palette.json`, 29 colour roles) by `tools\build_theme.py`. With the shipped palette the
   sheet is token for token the Njordlinger sheet it replaces.
+* Separators and mods are coloured separately by the stylesheet itself: separators black (palette `separator`,
+  `::item:has-children` - with collapsible separators MO2's separators are the tree's parent rows), mods the dark row
+  grey (`mod_row`), with MO2's conflict highlight on mods untouched (the owner: *"make sure the stylesheet in our theme
+  mod changes the separator and mod colors separatly"*).
 * Button faces and widget art: 35 images, tinted from the palette.
 * Toolbar icons: Njordlinger's own set on 12 toolbar actions; the notifications button is a warning triangle filled black
   (the owner: *"i like the warning triangle in black more than the bell"*). MO2's smaller buttons reuse those images

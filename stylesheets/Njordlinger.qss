@@ -684,6 +684,19 @@ QTreeView#modList {
   background-color: #2b2b2b;
   alternate-background-color: #2b2b2b; }
 
+/* ---- Mod list: separators and mods coloured separately (the owner, 2026-09-26: "make sure the stylesheet in our theme
+   mod changes the separator and mod colors separatly"). With collapsible separators MO2's list is a tree whose parent rows
+   are the separators, so ::item:has-children is a separator and nothing else; mods are the view's own background above
+   (mod_row), which keeps MO2's conflict highlight visible because no ::item rule ever matches a mod row. A separator with
+   no mods under it has no children and keeps the mod colour; a colour picked in MO2 for a separator is drawn over by this
+   rule. ---- */
+QTreeView#modList::item:has-children {
+  background-color: #000000; }
+QTreeView#modList::item:has-children:hover {
+  background-color: #121212; }
+QTreeView#modList::item:has-children:selected {
+  background-color: #5f5f5e;
+  color: #ffffff; }
 /* ---- Icons. The 13 toolbar actions use Njordlinger's own toolbar set (the icons the Njordlinger Icon plugin has put on
    the list's toolbar since 2026-09-22), copied into src\toolbar\. MO2 copies qproperty-icon from dummy buttons named after
    its toolbar actions onto the actions (src/mainwindow.cpp, v2.5.2). The notifications button is a warning triangle filled black (the owner, 2026-09-26: "i like the warning triangle in
