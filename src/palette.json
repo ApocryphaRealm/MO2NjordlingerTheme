@@ -1,0 +1,26 @@
+{
+    "name":  "Njordlinger",
+    "roles":  {
+                  "bg":  "#000000",
+                  "text_bright":  "#F1F1F1",
+                  "text_disabled":  "#656565",
+                  "text":  "#C0C0C0",
+                  "frame":  "#999999",
+                  "filtered":  "#ff0000",
+                  "text_hover":  "#ffffff",
+                  "hover":  "#121212",
+                  "selected":  "#5F5F5E",
+                  "link":  "#3399FF",
+                  "input":  "#141414",
+                  "input_focus":  "#212121",
+                  "scroll_border":  "rgba(243, 243, 243, 0.88)",
+                  "scroll_handle":  "rgba(255, 255, 255, 0.6)",
+                  "progress_a":  "#95BED9",
+                  "progress_b":  "#6EB9CE",
+                  "invalid":  "#661111",
+                  "mod_row":  "#2b2b2b",
+                  "icon":  "#dbd6cd",
+                  "icon_accent":  "#dbd6cd",
+                  "art_tint":  "#ffffff"
+              }
+}

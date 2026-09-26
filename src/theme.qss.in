@@ -1,0 +1,720 @@
+/* Njordlinger - a Mod Organizer 2 theme. TEMPLATE: tools\build_theme.py fills each double-braced role from src\palette.json and
+   writes stylesheets\Njordlinger.qss + stylesheets\Njordlinger\. Edit colours in the palette, not the built sheet. */
+/*!*************************************
+  Skyrim
+****************************************
+  Author: chintsu_kun
+  Version: 2.1.0
+  Licence: GNU General Public License v3.0 (https://www.gnu.org/licenses/gpl-3.0.en.html)
+  Url: https://github.com/nikolay-borzov/modorganizer-themes
+****************************************
+*/
+/* For some reason applying background-color or border fixes paddings properties */
+QListWidget::item {
+  border-width: 0; }
+
+/* Don't override install label on download widget.
+   MO2 assigns color depending on download state */
+#installLabel {
+  color: none; }
+
+/* Make `background-color` work for :hover, :focus and :pressed states */
+QToolButton {
+  border: none; }
+
+QWidget {
+  background-color: {{bg}};
+  color: {{text_bright}}; }
+
+* {
+  /* Remove outline */
+  outline: 0;
+  /* Text highlight  */
+  selection-background-color: {{bg}};
+  selection-color: white; }
+
+/* Disabled text */
+*:disabled,
+QListView::item:disabled,
+*::item:selected:disabled {
+  color: {{text_disabled}}; }
+
+/* Line heights */
+QListView::item,
+QTreeWidget::item,
+QTreeView::item {
+  padding: 0.3em 0; }
+
+/* Increase row height to fit inputs */
+#modList::item,
+#settingsTree::item,
+#pluginSettingsList::item,
+#espList::item,
+#savegameList::item {
+  min-height: 34px;
+  padding: 0; }
+  #modList::item QComboBox,
+  #modList::item QLineEdit,
+  #modList::item QComboBox:editable,
+  #modList::item QAbstractSpinBox,
+  #settingsTree::item QComboBox,
+  #settingsTree::item QLineEdit,
+  #settingsTree::item QComboBox:editable,
+  #settingsTree::item QAbstractSpinBox,
+  #pluginSettingsList::item QComboBox,
+  #pluginSettingsList::item QLineEdit,
+  #pluginSettingsList::item QComboBox:editable,
+  #pluginSettingsList::item QAbstractSpinBox,
+  #espList::item QComboBox,
+  #espList::item QLineEdit,
+  #espList::item QComboBox:editable,
+  #espList::item QAbstractSpinBox {
+    margin: 2px; }
+
+QAbstractItemView {
+  color: {{text}};
+  background-color: {{bg}};
+  alternate-background-color: {{bg}};
+  border-color: {{frame}}; }
+
+QAbstractItemView,
+QListView,
+QTreeView {
+  show-decoration-selected: 1; }
+
+QAbstractItemView[filtered=true] {
+	background-color: {{filtered}} !important;
+}
+
+QAbstractItemView::item:hover,
+QListView::item:hover,
+QTreeView::branch:hover,
+QTreeWidget::item:hover {
+  color: {{text_hover}};
+  background-color: {{hover}}; }
+
+QAbstractItemView::item:selected:disabled,
+QListView::item:selected:disabled,
+QTreeView::branch:selected:disabled,
+QTreeWidget::item:selected:disabled {
+  background-color: {{hover}}; }
+
+QAbstractItemView::item:selected {
+  background-color: {{selected}};
+  color: {{text_hover}}; }
+
+/* Trees and Lists #QTreeView, #QListView*/
+QTreeView::branch:selected {
+  background-color: {{selected}}; }
+
+QTreeView::branch:closed:has-children {
+  image: url(./Njordlinger/arrow-right.png); }
+
+QTreeView::branch:open:has-children {
+  image: url(./Njordlinger/branch-opened.png); }
+
+QListView::item {
+  color: {{text}}; }
+
+/* Text areas and text fields #QTextEdit, #QLineEdit, #QWebView */
+QLabel {
+  background-color: transparent; }
+
+LinkLabel {
+  qproperty-linkColor: {{link}}; }
+
+/* Font size */
+QLabel,
+QTextEdit,
+QLineEdit,
+QWebView,
+QComboBox,
+QComboBox:editable,
+QAbstractSpinBox,
+QGroupBox,
+QCheckBox,
+QRadioButton {
+  font-size: 14px; }
+
+/* Inputs */
+QTextEdit,
+QLineEdit,
+QWebView,
+QComboBox,
+QComboBox:editable,
+QAbstractSpinBox {
+  min-height: 24px;
+  border: none;
+  background-color: {{input}};
+  padding: 3px 5px; }
+  QTextEdit:hover, QTextEdit:focus,
+  QLineEdit:hover,
+  QLineEdit:focus,
+  QWebView:hover,
+  QWebView:focus,
+  QComboBox:hover,
+  QComboBox:focus,
+  QComboBox:editable:hover,
+  QComboBox:editable:focus,
+  QAbstractSpinBox:hover,
+  QAbstractSpinBox:focus {
+    background-color: {{input_focus}}; }
+
+QLineEdit {
+  margin-top: 0;
+  /* Clear button */
+  /* Increase version text field width */
+  /* Fix margins on tabs pane */ }
+  QLineEdit QToolButton,
+  QLineEdit QToolButton:hover {
+    background: none;
+    margin-top: 1px; }
+  QLineEdit#espFilterEdit QToolButton {
+    margin-top: -2px;
+    margin-bottom: 1px; }
+  QLineEdit#modFilterEdit {
+    margin-top: 2px; }
+  QLineEdit#versionEdit {
+    max-width: 90px; }
+  QLineEdit#espFilterEdit {
+    margin: 0 0 6px 0; }
+  QLineEdit#downloadView {
+    margin: 4px 4px 0 4px; }
+  QLineEdit#showHiddenBox {
+    margin: 0 0 4px 4px; }
+  QLineEdit#downloadFilterEdit {
+    margin: 0 4px 4px 0; }
+
+/* Drop-downs #QComboBox*/
+QComboBox {
+  padding-left: 5px;
+  margin: 3px 0 1px 0; }
+  QComboBox:on {
+    background-color: {{input_focus}}; }
+  QComboBox:editable {
+    padding-left: 3px; }
+  QComboBox::drop-down {
+    width: 20px;
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    border: none; }
+  QComboBox::down-arrow {
+    image: url(./Njordlinger/arrow-down.png); }
+  QComboBox QAbstractItemView {
+    background-color: {{bg}};
+    selection-background-color: {{input_focus}}; }
+
+/* Toolbar */
+QToolBar {
+  border: none; }
+  QToolBar::separator {
+    image: url(./Njordlinger/separator.png); }
+
+QToolButton {
+  margin: 0 4px 0 4px;
+  padding: 5px;
+  /* Scrollers */ }
+  QToolButton:hover, QToolButton:focus {
+    background-color: {{hover}}; }
+  QToolButton:pressed {
+    background-color: {{selected}}; }
+  QToolButton::menu-indicator {
+    image: url(./Njordlinger/arrow-down.png);
+    margin: 0 4px 4px 0; }
+    QToolButton::menu-indicator:pressed, QToolButton::menu-indicator:open {
+      image: url(./Njordlinger/arrow-right.png); }
+  QTabBar QToolButton {
+    background-color: {{bg}};
+    padding: 1px;
+    margin: 0; }
+    QTabBar QToolButton::right-arrow {
+      image: url(./Njordlinger/arrow-right.png); }
+    QTabBar QToolButton::left-arrow {
+      image: url(./Njordlinger/arrow-left.png); }
+
+/* Group Boxes #QGroupBox */
+QGroupBox {
+  padding: 1em .3em .3em .3em;
+  margin-top: .65em;
+  border: 1px solid {{frame}}; }
+  QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 5px;
+    left: 10px; }
+
+/* LCD Count */
+QLCDNumber {
+  border-color: {{frame}};
+  border-style: solid;
+  border-width: 1px; }
+
+/* Buttons #QPushButton */
+QPushButton {
+  min-height: 18px;
+  padding: 2px 5px;
+  border-style: solid;
+  background-color: transparent;
+  border-width: 0 15px 0 15px;
+  border-color: transparent;
+  /* Dialog buttons */
+  /* Show categories */
+  /* Run */
+  /* Mod info dialog images tab */ }
+  QPushButton:hover, QPushButton:checked:hover {
+    border-image: url(./Njordlinger/button-border.png) 0 15 no-repeat; }
+  QPushButton:checked {
+    border-image: url(./Njordlinger/button-checked-border.png) 0 15 repeat; }
+  QPushButton:disabled {
+    color: {{text_disabled}}; }
+  QPushButton::menu-indicator {
+    image: url(./Njordlinger/arrow-down.png);
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    padding-right: 5%; }
+  QDialog QPushButton {
+    font-weight: bold;
+    font-size: 15px;
+    min-width: 1.5em;
+    padding-left: .5em;
+    padding-right: .5em; }
+  QPushButton#displayCategoriesBtn {
+    min-width: 20px; }
+  QPushButton#startButton:hover {
+    border-image: url(./Njordlinger/button-big-border.png) 0 15 repeat; }
+  QPushButton#startButton:checked {
+    border-image: url(./Njordlinger/button-big-border.png) 0 15 repeat; }
+  QPushButton#unlockButton {
+    margin: 10px 20px; }
+  QPushButton + QPushButton {
+    margin: 10px 0 0 0; }
+  #tabImages QPushButton {
+    background-color: transparent;
+    border: none;
+    margin: 0 .3em;
+    padding: 0; }
+    #tabImages QPushButton:hover {
+      background-color: {{hover}}; }
+  #settingsTree::item QPushButton {
+    border-image: none; }
+
+/* Check boxes and Radio buttons common #QCheckBox, #QRadioButton */
+QGroupBox::indicator,
+QTreeView::indicator,
+QCheckBox::indicator {
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px; }
+  QGroupBox::indicator:checked, QGroupBox::indicator:indeterminate,
+  QTreeView::indicator:checked,
+  QTreeView::indicator:indeterminate,
+  QCheckBox::indicator:checked,
+  QCheckBox::indicator:indeterminate {
+    image: url(./Njordlinger/checkbox-checked.png); }
+    QGroupBox::indicator:checked:hover, QGroupBox::indicator:indeterminate:hover,
+    QTreeView::indicator:checked:hover,
+    QTreeView::indicator:indeterminate:hover,
+    QCheckBox::indicator:checked:hover,
+    QCheckBox::indicator:indeterminate:hover {
+      image: url(./Njordlinger/checkbox-checked-hover.png); }
+    QGroupBox::indicator:checked:disabled, QGroupBox::indicator:indeterminate:disabled,
+    QTreeView::indicator:checked:disabled,
+    QTreeView::indicator:indeterminate:disabled,
+    QCheckBox::indicator:checked:disabled,
+    QCheckBox::indicator:indeterminate:disabled {
+      image: url(./Njordlinger/checkbox-checked-disabled.png); }
+  QGroupBox::indicator:unchecked,
+  QTreeView::indicator:unchecked,
+  QCheckBox::indicator:unchecked {
+    image: url(./Njordlinger/checkbox.png); }
+    QGroupBox::indicator:unchecked:hover,
+    QTreeView::indicator:unchecked:hover,
+    QCheckBox::indicator:unchecked:hover {
+      image: url(./Njordlinger/checkbox-hover.png); }
+    QGroupBox::indicator:unchecked:disabled,
+    QTreeView::indicator:unchecked:disabled,
+    QCheckBox::indicator:unchecked:disabled {
+      image: url(./Njordlinger/checkbox-disabled.png); }
+
+/* Check boxes special */
+QTreeWidget#bsaList::indicator {
+  width: 10px;
+  height: 15px; }
+  QTreeWidget#bsaList::indicator:checked {
+    image: url(./Njordlinger/checkbox-alt-checked.png); }
+  QTreeWidget#bsaList::indicator:unchecked {
+    image: url(./Njordlinger/checkbox-alt-unchecked.png); }
+    QTreeWidget#bsaList::indicator:unchecked:hover {
+      image: url(./Njordlinger/checkbox-alt-unchecked-hover.png); }
+
+/* Radio buttons #QRadioButton */
+QRadioButton::indicator {
+  width: 16px;
+  height: 16px; }
+  QRadioButton::indicator::checked {
+    image: url(./Njordlinger/radio-checked.png); }
+  QRadioButton::indicator::unchecked {
+    image: url(./Njordlinger/radio.png); }
+    QRadioButton::indicator::unchecked:hover {
+      image: url(./Njordlinger/radio-hover.png); }
+
+/* Spinners #QSpinBox, #QDoubleSpinBox */
+QAbstractSpinBox {
+  margin: 1px; }
+  QAbstractSpinBox::up-button, QAbstractSpinBox::down-button {
+    border-style: solid;
+    border-width: 1px;
+    subcontrol-origin: padding; }
+    QAbstractSpinBox::up-button:hover, QAbstractSpinBox::down-button:hover {
+      background-color: {{input}}; }
+  QAbstractSpinBox::up-button {
+    subcontrol-position: top right; }
+  QAbstractSpinBox::down-button {
+    subcontrol-position: bottom right; }
+  QAbstractSpinBox::up-arrow {
+    image: url(./Njordlinger/arrow-up.png); }
+  QAbstractSpinBox::down-arrow {
+    image: url(./Njordlinger/arrow-down.png); }
+
+/* Scroll Bars #QAbstractScrollArea, #QScrollBar*/
+/* Assigning background still leaves not filled area */
+QAbstractScrollArea::corner {
+  background-color: transparent; }
+
+QScrollBar {
+  background-color: transparent;
+  border: none;
+  /* Since QTextEdit:hover doesn't work set focus input background */ }
+  QScrollBar:horizontal {
+    height: 12px;
+    border: none;
+    margin: 0 17px 0 17px; }
+  QScrollBar:vertical {
+    width: 12px;
+    border: none;
+    margin: 17px 0 17px 0; }
+  QScrollBar::handle {
+    border: 1px solid {{scroll_border}};
+    background-color: {{scroll_handle}}; }
+    QScrollBar::handle:horizontal {
+      min-width: 32px;
+      margin: 1px 0 1px 0; }
+    QScrollBar::handle:vertical {
+      min-height: 32px;
+      margin: 0 1px 0 1px; }
+  QScrollBar::add-line, QScrollBar::sub-line {
+    background-color: transparent;
+    border: none;
+    subcontrol-origin: margin; }
+    QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+      width: 17px; }
+    QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+      height: 17px; }
+  QScrollBar::add-line:horizontal {
+    subcontrol-position: right; }
+  QScrollBar::add-line:vertical {
+    subcontrol-position: bottom; }
+  QScrollBar::sub-line:horizontal {
+    subcontrol-position: left; }
+  QScrollBar::sub-line:vertical {
+    subcontrol-position: top; }
+  QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: url(./Njordlinger/scrollbar-horizontal.png) center center repeat-x; }
+  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: url(./Njordlinger/scrollbar-vertical.png) center center repeat-y; }
+  QScrollBar::up-arrow:vertical {
+    image: url(./Njordlinger/scrollbar-up.png); }
+  QScrollBar::down-arrow:vertical {
+    image: url(./Njordlinger/scrollbar-down.png); }
+  QScrollBar::right-arrow:horizontal {
+    image: url(./Njordlinger/scrollbar-right.png); }
+  QScrollBar::left-arrow:horizontal {
+    image: url(./Njordlinger/scrollbar-left.png); }
+  QTextEdit QScrollBar::up-arrow:vertical,
+  QTextEdit QScrollBar::down-arrow:vertical,
+  QTextEdit QScrollBar::right-arrow:horizontal,
+  QTextEdit QScrollBar::left-arrow:horizontal {
+    background-color: {{input_focus}}; }
+
+/* Scroll Area #QScrollArea*/
+QScrollArea {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px; }
+
+/* Sliders #QSlider */
+QSlider::groove:horizontal {
+  background: url(./Njordlinger/scrollbar-horizontal.png) repeat-x;
+  border-style: solid;
+  border-width: 0 17px;
+  border-color: transparent;
+  height: 12px;
+  margin: 0;
+  border-image: url(./Njordlinger/slider-border.png) 0 17 round; }
+
+QSlider::handle:horizontal {
+  background: url(./Njordlinger/slider-handle.png);
+  width: 18px;
+  height: 20px;
+  margin: -4px 0;
+  subcontrol-origin: margin; }
+
+/* Header Rows and Tables (Configure Mod Categories) #QTableView, #QHeaderView */
+QTableView {
+  gridline-color: transparent;
+  selection-background-color: {{selected}};
+  selection-color: {{text}}; }
+  QTableView QTableCornerButton::section {
+    background-color: transparent;
+    border-color: {{frame}};
+    border-style: solid;
+    border-width: 0 1px 1px 0; }
+
+QHeaderView {
+  border: none; }
+  QHeaderView::section {
+    background-color: transparent;
+    border-color: {{frame}};
+    /* 17px to have some place for sort indicator */
+    padding: 3px 17px 3px 5px;
+    border-style: solid; }
+    QHeaderView::section:horizontal {
+      border-width: 0 0 1px 0; }
+    QHeaderView::section:vertical {
+      border-width: 0 1px 0 0; }
+    QHeaderView::section:hover {
+      background: {{hover}};
+      color: {{text_hover}}; }
+  QHeaderView::up-arrow, QHeaderView::down-arrow {
+    subcontrol-origin: content;
+    subcontrol-position: center right;
+    width: 7px;
+    height: 7px;
+    margin-right: 7px; }
+  QHeaderView::up-arrow {
+    image: url(./Njordlinger/arrow-up.png); }
+  QHeaderView::down-arrow {
+    image: url(./Njordlinger/arrow-down.png); }
+
+/* Context menus, toolbar drop-downs #QMenu  */
+QMenuBar {
+	background-color: {{bg}};
+}
+
+QMenuBar::item:selected {
+	background-color: {{hover}};
+}
+
+QMenu {
+  background-color: transparent; }
+  QMenu::item,
+  QMenu QPushButton {
+    padding: 6px 20px; }
+  QMenu::item:selected {
+    background-color: {{hover}}; }
+  QMenu::item:disabled {
+    background-color: transparent; }
+  QMenu::separator {
+    height: 3px;
+    margin: 1px 0;
+    background: url(./Njordlinger/context-menu-separator.png) repear-x; }
+  QMenu::icon {
+    margin: 1px; }
+  QMenu::right-arrow {
+    image: url(./Njordlinger/arrow-right.png);
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    padding-right: .5em; }
+  QMenu QPushButton {
+    /* Cancel styles */
+    border: none;
+    text-align: left; }
+    QMenu QPushButton:hover {
+      background-color: {{hover}}; }
+  QMenu QCheckBox,
+  QMenu QRadioButton {
+    background-color: transparent;
+    padding: 5px 2px; }
+
+/* Tool tips #QToolTip, #SaveGameInfoWidget */
+QToolTip {
+  background-color: transparent;
+  color: {{text}};
+  padding: 0; }
+
+SaveGameInfoWidget {
+  background-color: {{hover}};
+  color: {{text}}; }
+
+QStatusBar::item {border: None;}
+
+/* Progress Bars (Downloads) #QProgressBar */
+QProgressBar {
+  background-color: transparent;
+  color: transparent;
+  height: 14px;
+  margin: 0 0px;
+  border-width: 4px 21px;
+  border-style: solid;
+  border-color: transparent;
+  border-image: url(./Njordlinger/progress-bar-border.png) 4 21 repeat repeat; }
+  QProgressBar::chunk {
+    background: url(./Njordlinger/progress-bar-chunk.png) center center repeat-x qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 {{progress_a}}, stop:0.78781 {{progress_b}}); }
+
+DownloadListView[downloadView=standard]::item {
+	padding: 15px;
+}
+
+DownloadListView[downloadView=compact]::item {
+	padding: 4px;
+}
+
+/* Right Pane and Tab Bars #QTabWidget, #QTabBar */
+QTabWidget::pane {
+  border: none;
+  top: 0; }
+
+QTabBar {
+  text-transform: uppercase;
+  max-height: 22px; }
+  QTabBar::tab {
+    color: {{text}};
+    background-color: transparent;
+    padding: 4px .5em;
+    margin: 0 0 .3em 0;
+    border-style: solid;
+    border-width: 0 15px 0 15px;
+    border-color: transparent; }
+    QTabBar::tab:hover {
+      color: {{text_hover}}; }
+    QTabBar::tab:selected {
+      color: {{text_hover}};
+      border-image: url(./Njordlinger/button-checked-border.png) 0 15 repeat; }
+    QTabBar::tab:disabled {
+      color: {{text_disabled}}; }
+  QTabBar::scroller {
+    width: 23px; }
+
+/* Border images */
+ModListView,
+QTreeView,
+ModListView#modList,
+QTreeWidget,
+QListView,
+QTableView,
+QDialog#LockedDialog {
+  border-width: 20px;
+  border-color: transparent;
+  border-image: url(./Njordlinger/border-image.png) 27 repeat repeat; }
+
+QMenu,
+QToolTip {
+  border-width: 17px;
+  border-color: transparent;
+  border-image: url(./Njordlinger/border-image.png) 27 repeat repeat; }
+
+/* Special styles */
+/* Increase categories tab width */
+QTreeWidget#categoriesList {
+  min-width: 200px; }
+  QTreeWidget#categoriesList::item {
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding: .35em 10px; }
+    QTreeWidget#categoriesList::item:has-children {
+      background-image: url(./Njordlinger/arrow-right.png); }
+      QTreeWidget#categoriesList::item:has-children:open {
+        background-image: url(./Njordlinger/branch-opened.png); }
+
+/* Add some space around buttons */
+#QueryOverwriteDialog QPushButton {
+  margin-left: 0.5em; }
+
+#SimpleInstallDialog QPushButton {
+  margin-top: 0.5em; }
+
+#ProfilesDialog QPushButton {
+  margin-bottom: 0.5em; }
+
+#ProfilesDialog QPushButton#closeButton {
+  margin-bottom: 0; }
+
+#EditExecutablesDialog QPushButton#addButton,
+#EditExecutablesDialog QPushButton#removeButton {
+  margin-bottom: 0.5em;
+  margin-top: 1em; }
+
+/* Increase dialogs width to prevent buttons cutting */
+QDialog#QueryOverwriteDialog {
+  min-width: 565px; }
+
+QDialog#ModInfoDialog {
+  min-width: 940px; }
+
+QDialog#BainComplexInstallerDialog {
+  min-width: 500px; }
+
+QDialog#EditExecutablesDialog {
+  min-width: 500px; }
+
+QDialog#SettingsDialog {
+  min-width: 670px; }
+
+QDialog#CredentialsDialog {
+  min-width: 400px; }
+
+#pluginsList {
+  min-width: 260px; }
+
+QLineEdit[valid-filter=false] {
+	background-color: {{invalid}} !important;
+}
+
+
+/* Njordlinger (2026-09-15, revised): mod rows dark grey, separators black, and MO2's conflict highlight still visible.
+   The base theme draws a border-image over the whole mod list, whose centre covers the view background; with it off, the
+   view's background-color paints plain rows and alternate-background-color paints alternate rows (both the same grey).
+   Separators keep their own black (meta.ini color=), including empty ones. No ::item background rule: Qt's style-sheet
+   style draws an ::item background INSTEAD of the brush MO2's delegate sets for conflicts (src/modlistview.cpp
+   ModListStyledItemDelegate::paint -> markerColor), which is what hid the overwrite/overwritten row colours.
+   Verified by a distinct-colour test capture (list #3a0000, alternate #003a00). */
+QTreeView#modList {
+  border-image: none;
+  background-color: {{mod_row}};
+  alternate-background-color: {{mod_row}}; }
+
+/* ---- Icons. The 13 toolbar actions use Njordlinger's own toolbar set (the icons the Njordlinger Icon plugin has put on
+   the list's toolbar since 2026-09-22), copied into src\toolbar\. MO2 copies qproperty-icon from dummy buttons named after
+   its toolbar actions onto the actions (src/mainwindow.cpp, v2.5.2). MO2's own smaller buttons reuse those images where
+   one fits and otherwise take line icons drawn in the same grey and weight (tools\icons.py). ---- */
+#actionChange_Game { qproperty-icon: url("./Njordlinger/icons/actionChange_Game.png"); }
+#actionInstallMod { qproperty-icon: url("./Njordlinger/icons/actionInstallMod.png"); }
+#actionNexus { qproperty-icon: url("./Njordlinger/icons/actionNexus.png"); }
+#actionModPage { qproperty-icon: url("./Njordlinger/icons/actionModPage.png"); }
+#actionAdd_Profile { qproperty-icon: url("./Njordlinger/icons/actionAdd_Profile.png"); }
+#action_Refresh { qproperty-icon: url("./Njordlinger/icons/action_Refresh.png"); }
+#actionModify_Executables { qproperty-icon: url("./Njordlinger/icons/actionModify_Executables.png"); }
+#actionTool { qproperty-icon: url("./Njordlinger/icons/actionTool.png"); }
+#actionSettings { qproperty-icon: url("./Njordlinger/icons/actionSettings.png"); }
+#actionEndorseMO { qproperty-icon: url("./Njordlinger/icons/actionEndorseMO.png"); }
+#actionNotifications { qproperty-icon: url("./Njordlinger/icons/actionNotifications.png"); }
+#actionUpdate { qproperty-icon: url("./Njordlinger/icons/actionUpdate.png"); }
+#actionHelp { qproperty-icon: url("./Njordlinger/icons/actionHelp.png"); }
+
+#refreshButton, #btnRefreshData, #dataTabRefresh, #btnRefreshDownloads, #refresh {
+  qproperty-icon: url("./Njordlinger/icons/action_Refresh.png"); icon-size: 18px; }
+#visitNexus { qproperty-icon: url("./Njordlinger/icons/actionNexus.png"); }
+#endorse { qproperty-icon: url("./Njordlinger/icons/actionEndorseMO.png"); icon-size: 18px; }
+#listOptionsBtn { qproperty-icon: url("./Njordlinger/icons/dots.svg"); }
+#openFolderMenu { qproperty-icon: url("./Njordlinger/icons/folder.svg"); icon-size: 18px; }
+#restoreModsButton, #restoreButton { qproperty-icon: url("./Njordlinger/icons/restore.svg"); icon-size: 18px; }
+#saveModsButton, #saveButton { qproperty-icon: url("./Njordlinger/icons/backup.svg"); icon-size: 18px; }
+#clearFiltersButton { qproperty-icon: url("./Njordlinger/icons/cross.svg"); }
+#bossButton { qproperty-icon: url("./Njordlinger/icons/sort.svg"); icon-size: 18px; }
+#clearCacheButton, #revokeNexusAuthButton, #nexusDisconnect { qproperty-icon: url("./Njordlinger/icons/cross.svg"); icon-size: 18px; }
+#deactivateESP { qproperty-icon: url("./Njordlinger/icons/minus.svg"); }
+#activateESP { qproperty-icon: url("./Njordlinger/icons/plus.svg"); }
+#startButton { qproperty-icon: url("./Njordlinger/icons/play.svg"); }
+#linkButton { qproperty-icon: url("./Njordlinger/icons/shortcut.svg"); icon-size: 18px; }
+#track { qproperty-icon: url("./Njordlinger/icons/pin.svg"); }
