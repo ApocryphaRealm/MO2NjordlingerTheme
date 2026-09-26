@@ -12,7 +12,7 @@ we should do that instead"*.
 * Built from one palette (`src\palette.json`, 29 colour roles) by `tools\build_theme.py`. With the shipped palette the
   sheet is token for token the Njordlinger sheet it replaces.
 * Button faces and widget art: 35 images, tinted from the palette.
-* Toolbar icons: Njordlinger's own set on 12 toolbar actions; the notifications button keeps MO2's warning triangle
+* Toolbar icons: Njordlinger's own set on 12 toolbar actions; the notifications button is a warning triangle filled black
   (the owner: *"i like the warning triangle in black more than the bell"*). MO2's smaller buttons reuse those images
   or get line icons drawn in the same grey and weight.
 * `Njordlinger\theme.json` for **MO2 Theme Framework**: black separators, MO2's conflict colours, the palette for other

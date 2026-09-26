@@ -686,7 +686,7 @@ QTreeView#modList {
 
 /* ---- Icons. The 13 toolbar actions use Njordlinger's own toolbar set (the icons the Njordlinger Icon plugin has put on
    the list's toolbar since 2026-09-22), copied into src\toolbar\. MO2 copies qproperty-icon from dummy buttons named after
-   its toolbar actions onto the actions (src/mainwindow.cpp, v2.5.2). The notifications button keeps MO2's own warning triangle (the owner, 2026-09-26: "i like the warning triangle in
+   its toolbar actions onto the actions (src/mainwindow.cpp, v2.5.2). The notifications button is a warning triangle filled black (the owner, 2026-09-26: "i like the warning triangle in
    black more than the bell"). MO2's own smaller buttons reuse those images where
    one fits and otherwise take line icons drawn in the same grey and weight (tools\icons.py). ---- */
 #actionChange_Game { qproperty-icon: url("./Njordlinger/icons/actionChange_Game.png"); }
@@ -699,6 +699,7 @@ QTreeView#modList {
 #actionTool { qproperty-icon: url("./Njordlinger/icons/actionTool.png"); }
 #actionSettings { qproperty-icon: url("./Njordlinger/icons/actionSettings.png"); }
 #actionEndorseMO { qproperty-icon: url("./Njordlinger/icons/actionEndorseMO.png"); }
+#actionNotifications { qproperty-icon: url("./Njordlinger/icons/problems.svg"); }
 #actionUpdate { qproperty-icon: url("./Njordlinger/icons/actionUpdate.png"); }
 #actionHelp { qproperty-icon: url("./Njordlinger/icons/actionHelp.png"); }
 
